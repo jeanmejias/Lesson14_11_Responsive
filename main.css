@@ -75,7 +75,7 @@ ul {
 
 .header {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
-  max-width: 800px;
+  width: 100%;
   min-height: 56px;
   margin: 0 auto;
   transition: min-height 0.3s;
@@ -83,6 +83,7 @@ ul {
 
 .header__inner {
   width: 100%;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -102,6 +103,10 @@ ul {
   color: #212121;
 }
 
+a#menu svg {
+  width: 40px;
+  fill: #000;
+}
 
 /*
  *
@@ -109,38 +114,42 @@ ul {
  *
  */
 
-.nav {
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
-  width: 100%;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  justify-content: space-around;
-}
+ nav {
+   width: 300px;
+   height: 100%;
+   position: absolute;
+   top: 0;
+   /* This trasform moves the drawer off canvas. */
+   -webkit-transform: translate(-300px, 0);
+   transform: translate(-300px, 0);
+   /* Optionally, we animate the drawer. */
+   transition: transform 0.3s ease;
+   background-color: #7086be;
+   z-index: 999;
+ }
 
-.nav__list {
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  display: flex;
-  -webkit.flex-flow: row wrap;
-  justify-content: space-around;
-}
+ nav.open {
+   -webkit-transform: translate(0, 0);
+   transform: translate(0, 0);
+ }
+
+.nav__item {
+     line-height: 18px;
+     padding: 18px;
+     border-bottom: 1px solid #788FCB;
+   }
 
 .nav a {
-  display: block;
   padding: 1.5em;
   text-decoration: none;
   text-transform: uppercase;
-  color: #616161;
+  color: #fff;
 }
 
 .nav a:hover {
   text-decoration: underline;
-  color: #212121;
+  color: #ccc;
 }
-
 
 /*
  *
@@ -432,14 +441,92 @@ footer a {
 }
 
 @media only screen and (min-width: 569px) and (max-width: 667px) {
+
+  .nav {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    max-height: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-around;
+    transform: none;
+    background-color: #fff;
+  }
+  .nav__list {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    -webkit.flex-flow: row wrap;
+    justify-content: space-around;
+  }
+
+  .nav__item {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 24%;
+    text-align: center;
+    line-height: 24px;
+    padding: 24px;
+    text-transform: uppercase;
+  }
+
+  .nav a {
+    display: block;
+    color: #000;
+  }
+  .nav a:hover {
+    color: #eee;
+  }
+
   .top-news { width: 50%;}
   .scores { order: 3;}
   .weather { width: 50%; order: 2;}
 }
 
 @media only screen and (min-width: 668px) {
-  .hero {width: 66.6667%; }
-  .top-news { width: 50%; order: 2}
-  .scores { width: 50%; order: 3;}
-  .weather { width: 33.33337%; order: 1;}
+  .nav {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    max-height: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-around;
+    transform: none;
+    background-color: #fff;
+  }
+  .nav__list {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    -webkit.flex-flow: row wrap;
+    justify-content: space-around;
+  }
+
+  .nav__item {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 24%;
+    text-align: center;
+    line-height: 24px;
+    padding: 24px;
+    text-transform: uppercase;
+  }
+
+  .nav a {
+    display: block;
+    color: #000;
+  }
+  .nav a:hover {
+    color: #eee;
+  }
+  .hero { width: 60%; }
+  .top-news { width: 40%; order: 1}
+  .scores { width: 50%; order: 2; padding-left: 1em;}
+  .weather { width: 50%; order: 3; padding-right: 1em;}
 }
