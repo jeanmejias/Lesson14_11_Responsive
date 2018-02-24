@@ -198,10 +198,11 @@
       </footer>
     </main>
 
-    <script>
+     <script>
       /*
        * Open the drawer when the menu icon is clicked.
        */
+<<<<<<< HEAD
 
           let menu = document.querySelector('#menu');
           let main = document.querySelector('main');
@@ -217,7 +218,28 @@
                          drawer.classList.remove('open');
                       });
 
-  </script>
+=======
+      let menu = document.querySelector('#menu');
+      let main = document.querySelector('main');
+      let drawer = document.querySelector('#drawer');
+      window.onresize = function(event) {
+            if ( $(window).width() < 569 ) {
+                  $('#menu').show();
+                  menu.addEventListener('click', function(e) {
+                    drawer.classList.toggle('open');
+                    e.stopPropagation();
+                  });
 
+                  main.addEventListener('click', function() {
+                     drawer.classList.remove('open');
+                  });
+
+            } else {
+                $('#menu').hide();
+            }
+      };
+>>>>>>> 6d4205b4a6088b54eaa4ad504f0c428d0358775a
+  </script>
+	  
   </body>
 </html>
