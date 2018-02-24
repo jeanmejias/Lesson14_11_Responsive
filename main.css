@@ -518,6 +518,10 @@ footer a {
         margin: 0.25em 0.25em;
   }
 
+  a#menu {
+    display: none;
+  }
+  
   .nav {
         position: relative;
         width: 100%;
