@@ -198,30 +198,30 @@
       </footer>
     </main>
 
-    <script>
+     <script>
       /*
        * Open the drawer when the menu icon is clicked.
        */
-      var menu = document.querySelector('#menu');
-      var main = document.querySelector('main');
-      var drawer = document.querySelector('#drawer');
-      if ( $(window).width() < 569 ) {
+      let menu = document.querySelector('#menu');
+      let main = document.querySelector('main');
+      let drawer = document.querySelector('#drawer');
+      window.onresize = function(event) {
+            if ( $(window).width() < 569 ) {
+                  $('#menu').show();
+                  menu.addEventListener('click', function(e) {
+                    drawer.classList.toggle('open');
+                    e.stopPropagation();
+                  });
 
-            menu.addEventListener('click', function(e) {
-              drawer.classList.toggle('open');
-              e.stopPropagation();
-            });
+                  main.addEventListener('click', function() {
+                     drawer.classList.remove('open');
+                  });
 
-            main.addEventListener('click', function() {
-               drawer.classList.remove('open');
-            });
-
-        } else {
-          $('#menu').hide();
-        }
-
-
+            } else {
+                $('#menu').hide();
+            }
+      };
   </script>
-
+	  
   </body>
 </html>
