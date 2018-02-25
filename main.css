@@ -1,20 +1,4 @@
-/* browser reset from https://css-tricks.com/box-sizing/ */
-
-html {
-  box-sizing: border-box;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-html, body {
-  padding: 0;
-  margin: 0;
-}
-
-body,
-html {
+body, html {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -22,24 +6,15 @@ html {
 }
 
 body {
-  font: 80%/1.5 Roboto, sans-serif;
+  font: 16px/1.23 Roboto, sans-serif;
   color: #424242;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5 {
+h1, h2, h3, h4, h5 {
   margin: 0;
 }
 
-header,
-nav,
-footer,
-section,
-article,
-div {
+header, nav, footer, section, article, div {
   box-sizing: border-box;
 }
 
@@ -48,6 +23,7 @@ ul {
   padding: 0;
   margin: 0;
 }
+
 
 /*
  *
@@ -71,17 +47,15 @@ ul {
 
 .header {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
-  width: 100%;
-  min-height: 48px;
-  margin: 0 auto;
+  min-height: 56px;
   transition: min-height 0.3s;
 }
 
 .header__inner {
   width: 100%;
-  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  padding: 0 1em;
 }
 
 .header__logo {
@@ -94,19 +68,9 @@ ul {
 .header__title {
   font-weight: 300;
   font-size: 4em;
-  margin: 0 0.25em 0.5em;
+  margin: 0.5em 0.25em;
   display: inline-block;
   color: #212121;
-}
-
-a#menu {
-  display: inline-block;
-  padding: 2em 0 0 0.25em;
-}
-
-a#menu svg {
-  width: 36px;
-  fill: #ccc;
 }
 
 
@@ -116,41 +80,37 @@ a#menu svg {
  *
  */
 
- nav {
-   width: 300px;
-   height: 100%;
-   position: absolute;
-   top: 0;
-   /* This trasform moves the drawer off canvas. */
-   -webkit-transform: translate(-300px, 0);
-   transform: translate(-300px, 0);
-   /* Optionally, we animate the drawer. */
-   transition: transform 0.3s ease;
-   background-color: #7086be;
-   z-index: 999;
- }
+.nav {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
 
- nav.open {
-   -webkit-transform: translate(0, 0);
-   transform: translate(0, 0);
- }
+.nav__list {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
 
 .nav__item {
-  line-height: 18px;
-  padding: 18px;
-  border-bottom: 1px solid #788FCB;
-   }
+  box-sizing: border-box;
+  display: inline-block;
+  width: 24%;
+  text-align: center;
+  line-height: 24px;
+  padding: 24px;
+  text-transform: uppercase;
+}
 
 .nav a {
-  padding: 1.5em;
   text-decoration: none;
-  text-transform: uppercase;
-  color: #fff;
+  color: #616161;
+  padding: 1.5em;
 }
 
 .nav a:hover {
   text-decoration: underline;
-  color: #ccc;
+  color: #212121;
 }
 
 
@@ -163,42 +123,15 @@ a#menu svg {
 main {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
   width: 100%;
-  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 }
-
 
 /*
  *
  * Content
  *
  */
-
-.content {
-  display: flex;
-  flex-flow: row wrap;
-}
-
-.hero {
-  order: 0;
-}
-
-.top-news {
-  order: 1;
-}
-
-.scores {
-  order: 2;
-}
-
-.weather {
-  order: 3;
-}
-
-.recent-news {
-  order: 4;
-}
 
 
 /*
@@ -227,6 +160,9 @@ main {
   padding: 1em;
 }
 
+.hero p {
+  margin: 0.5em 0 0;
+}
 
 /*
  *
@@ -235,10 +171,10 @@ main {
  */
 
 .top-news {
-  width: 100%;
-  height: 300px;
+  max-height: 350px;
   border-bottom: 1px solid #E0E0E0;
   padding: 1em;
+  width: 100%;
 }
 
 .news__title {
@@ -265,6 +201,7 @@ main {
 .top-news__item a {
   text-decoration: none;
   color: #666;
+  padding: 1.5em inherit;
 }
 
 .top-news__item a:hover,
@@ -282,10 +219,10 @@ main {
 .scores {
   width: 100%;
   padding-top: 1em;
+  flex-grow: 1;
 }
 
 .scores__table {
-  width: 100%;
   border-collapse: collapse;
 }
 
@@ -314,13 +251,14 @@ main {
 
 .scores__table td:nth-child(3) {
   text-align: right;
+  color: #990099;
 }
 
 .scores__table td:nth-child(2),
 .scores__table td:nth-child(5) {
   text-align: center;
+  color: #009900;
 }
-
 
 /*
  *
@@ -329,8 +267,8 @@ main {
  */
 
 .weather {
+  flex-grow: 1;
   padding: 1em;
-  width: 100%;
 }
 
 .weather__location {
@@ -364,7 +302,7 @@ main {
 
 .weather__next__item {
   display: inline-block;
-  width: 18%;
+  width: 20%;
   text-align: center;
 }
 
@@ -384,9 +322,9 @@ main {
  */
 
 .recent-news {
+  flex-grow: 1;
   clear: both;
   padding: 1em;
-
 }
 
 .snippet {
@@ -407,6 +345,7 @@ main {
 .snippet__title a {
   text-decoration: none;
   color: #666;
+  padding: 1.5em inherit;
 }
 
 .snippet__title a:hover,
@@ -423,161 +362,27 @@ main {
 
 footer {
   border-top: 1px solid #E0E0E0;
-  padding: 1em;
+  padding: 1em 0;
   width: 100%;
 }
-
+footer ul {
+  display: flex;
+  flex-wrap: flex;
+}
 footer li {
   display: inline-block;
-  margin: 0 1em;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+  margin: 0;
+  padding:0;
+  text-align: center;
 }
 
 footer a {
   text-decoration: none;
-  font-size: 95%;
   color: #333;
-  padding: 0.75em;
-}
-
-
-@media only screen and (max-width: 568px) {
-
-  .header__logo {
-        margin-bottom: 6px;
-    }
-
-  .header__title {
-        margin: 1em 0.25em 0.25em ;font-size: 1.8em;
-    }
-
-}
-
-@media only screen and (min-width: 569px) and (max-width: 667px) {
-
-  .header__title {
-        margin: 0.25em 0.25em;
-  }
-
-  a#menu {
-        display: none;
-  }
-
-  .nav {
-        position: relative;
-        width: 100%;
-        max-width: 800px;
-        max-height: 60px;
-        margin: 0.5em auto 0.25em;
-        justify-content: space-around;
-        transform: none;
-        background-color: #fff;
-  }
-  .nav__list {
-        width: 100%;
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        display: flex;
-        -webkit.flex-flow: row wrap;
-        justify-content: space-around;
-  }
-
-  .nav__item {
-        box-sizing: border-box;
-        display: inline-block;
-        width: 24%;
-        text-align: center;
-        line-height: 12px;
-        padding: 0;
-        text-transform: uppercase;
-        border-bottom: none;
-  }
-
-  .nav a {
-        display: block;
-        color: #000;
-  }
-
-  .nav a:hover {
-        color: #666;
-  }
-
-  .top-news {
-        width: 50%;
-  }
-
-  .scores {
-        order: 3;
-  }
-
-  .weather {
-        width: 50%; order: 2;
-  }
-
-}
-
-@media only screen and (min-width: 668px) {
-
-  .header__title {
-        margin: 0.25em 0.25em;
-  }
-
-  a#menu {
-    display: none;
-  }
-
-  .nav {
-        position: relative;
-        width: 100%;
-        max-width: 800px;
-        max-height: 60px;
-        margin: 0.5em auto 0.25em;
-        justify-content: space-around;
-        transform: none;
-        background-color: #fff;
-  }
-  .nav__list {
-        width: 100%;
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        display: flex;
-        -webkit.flex-flow: row wrap;
-        justify-content: space-around;
-  }
-
-  .nav__item {
-        box-sizing: border-box;
-        display: inline-block;
-        width: 24%;
-        text-align: center;
-        line-height: 12px;
-        padding: 0;
-        text-transform: uppercase;
-        border-bottom: none;
-  }
-
-  .nav a {
-        display: block;
-        color: #000;
-  }
-
-  .nav a:hover {
-        color: #666;
-  }
-
-  .hero {
-        width: 60%;
-  }
-
-  .top-news {
-        width: 40%; order: 1
-  }
-  .scores {
-        width: 50%; order: 2; padding-left: 1em;
-  }
-
-  .weather {
-        width: 50%; order: 3; padding-right: 1em;
-  }
+  padding: 1.5em;
 }
