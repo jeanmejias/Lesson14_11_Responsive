@@ -251,13 +251,11 @@ main {
 
 .scores__table td:nth-child(3) {
   text-align: right;
-  color: #990099;
 }
 
 .scores__table td:nth-child(2),
 .scores__table td:nth-child(5) {
   text-align: center;
-  color: #009900;
 }
 
 /*
